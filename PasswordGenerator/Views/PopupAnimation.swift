@@ -25,6 +25,7 @@ struct PopupAnimation: View {
             VStack {
                 Image(systemName: "checkmark.circle")
                     .font(.system(size: 70)).foregroundColor(.white)
+                    .accessibility(identifier: "success-icon")
                 Spacer()
                     .frame(maxHeight : 20)
                 Text(message)

@@ -74,6 +74,7 @@ struct PasswordView: View {
                             Button(action: { showAlert.toggle() }, label:
                                     Text("Supprimer le mot de passe")
                                     .foregroundColor(.red))
+                            .accessibility(identifier: "view-pass-delete-pass-button")
                             Spacer()
                         }
                     }
@@ -87,6 +88,7 @@ struct PasswordView: View {
                         .foregroundColor(Color.white)
                         .background(Color.blue)
                         .cornerRadius(30)
+                        .accessibility(identifier: "success-message")
                     }
                 }
                 
@@ -130,6 +132,7 @@ struct PasswordView: View {
                         Image(systemName: "eye.slash") : Image(systemName: "eye")
                         
                     })
+                        .accessibility(identifier: "show-hide-button")
                                             .padding(5)
                                         .foregroundColor(settings.colors[settings.accentColorIndex])
                

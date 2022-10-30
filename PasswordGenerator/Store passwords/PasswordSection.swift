@@ -68,7 +68,7 @@ struct PasswordSection: View {
             
         })
         .disabled(!revealPassword || isEditingPassword)
-        
+        .accessibility(identifier: "view-pass-copy-pass-button")
     }
 }
 
@@ -93,10 +93,12 @@ extension PasswordSection {
                         
                     Text(revealPassword ? password : "****************************")
                         .privacySensitive(settings.privacyMode && revealPassword ? true : false)
+                        .accessibility(identifier: "password-text")
                         
                     } else {
                         
                         Text(revealPassword ? password : "****************************")
+                            .accessibility(identifier: "password-text")
                         
                     }
                     
@@ -117,6 +119,7 @@ extension PasswordSection {
                     Image(systemName: "pencil")
                     
                 })
+                .accessibility(identifier: "view-pass-edit-password-button")
                 .foregroundColor(!revealPassword ? .gray : settings.colors[settings.accentColorIndex])
                 .buttonStyle(PlainButtonStyle())
                 .disabled(!revealPassword)
@@ -143,6 +146,7 @@ extension PasswordSection {
                     .keyboardType(.asciiCapable)
                     .isFirstResponder(true)
                     .disableAutocorrection(true)
+                    .accessibility(identifier: "edited-password-text")
                 
                 Button(action: {
                     
@@ -158,6 +162,7 @@ extension PasswordSection {
                         .foregroundColor(!editedPassword.isEmpty ? .green : .blue)
                     
                 })
+                .accessibility(identifier: "view-pass-save-edit-password-button")
                 .disabled(editedPassword.isEmpty)
                 .buttonStyle(PlainButtonStyle())
                 .foregroundColor(settings.colors[settings.accentColorIndex])

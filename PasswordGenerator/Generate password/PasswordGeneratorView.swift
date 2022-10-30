@@ -53,6 +53,7 @@ struct PasswordGeneratorView: View {
                             }
                             .font(characterCount > 25 ? .system(size: 15) : .body)
                             .animation(.easeOut(duration: 0.1))
+                            .accessibility(identifier: "password-character")
                         
                             Spacer()
                             
@@ -66,6 +67,7 @@ struct PasswordGeneratorView: View {
                             }, label: {
                                 Image(systemName: "doc.on.doc")
                                     .foregroundColor(settings.colors[settings.accentColorIndex])
+                                    .accessibility(identifier: "copy-button")
                                 
                                 
                             }).buttonStyle(PlainButtonStyle())
@@ -81,6 +83,7 @@ struct PasswordGeneratorView: View {
                                 
                                 
                             }).buttonStyle(PlainButtonStyle())
+                                .accessibility(identifier: "add-to-safe-button")
                             Spacer()
                         }
                         
@@ -119,6 +122,7 @@ struct PasswordGeneratorView: View {
                                     .transition(.opacity)
                                     .transition(.move(edge: .top))
                                     .animation(.easeOut(duration: 0.8))
+                                    .accessibility(identifier: "character-slider")
 
                             } else {
                                 StrenghtMeterView(entropy: currentPasswordEntropy, characterCount: characterCount, combinaisons: viewModel.possibleCombinaisons, lenght: generatedPassword.count)
@@ -172,6 +176,7 @@ struct PasswordGeneratorView: View {
                             }
                         })
                         .toggleStyle(SwitchToggleStyle(tint: settings.colors[settings.accentColorIndex]))
+                        .accessibility(identifier: "special-characters-toggle")
                         Toggle(isOn: $uppercased, label: {
                             HStack {
                                 Text("Majuscules")
@@ -180,6 +185,7 @@ struct PasswordGeneratorView: View {
                             
                         })
                         .toggleStyle(SwitchToggleStyle(tint: settings.colors[settings.accentColorIndex]))
+                        .accessibility(identifier: "uppercase-toggle")
                         Toggle(isOn: $withNumbers, label: {
                             HStack {
                                 Text("Chiffres")
@@ -187,6 +193,7 @@ struct PasswordGeneratorView: View {
                             }
                         })
                         .toggleStyle(SwitchToggleStyle(tint: settings.colors[settings.accentColorIndex]))
+                        .accessibility(identifier: "figures-toggle")
                     }
                     
                 }
@@ -202,6 +209,7 @@ struct PasswordGeneratorView: View {
                     .foregroundColor(Color.white)
                     .background(Color.blue)
                     .cornerRadius(30)
+                    .accessibility(identifier: "success-message")
                 }
 
             }
@@ -215,6 +223,7 @@ struct PasswordGeneratorView: View {
                     .foregroundColor(Color.white)
                     .background(Color.blue)
                     .cornerRadius(30)
+                    .accessibility(identifier: "success-message")
                 }
             }
         }
