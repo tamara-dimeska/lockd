@@ -1,28 +1,42 @@
 import XCTest
 
 final class SearchSavedPasswords: UITestCase {
-    private var settingsScreen: SettingsScreen { SettingsScreen(app: app) }
+    private var bottomNavBar: BottomNavigationBar { BottomNavigationBar(app: app) }
+    private var safeScreen: SafeScreen { SafeScreen(app: app) }
+    
+    private let passwordTitle = "Search saved passwords"
     
     private func prepareApp() {
-        addPassToSafe(withUsername: TEST_USER_EMAIL, andTitle: "Search saved passwords")
+        addPassToSafe(withUsername: TEST_USER_EMAIL, andTitle: passwordTitle)
+        bottomNavBar.tabSafeIcon()
     }
     
     override func tearDownWithError() throws {
+        safeScreen.tapCancelButton()
         clearAllPasswords()
         
         super.tearDown()
     }
 
     func test_user_can_search_password_by_inputting_full_title() throws {
-
+        prepareApp()
+        safeScreen.searchForPassword(text: passwordTitle)
+        
+        XCTAssertTrue(safeScreen.isPasswordDisplayed(), "Password is not displayed in safe.")
     }
 
     func test_user_can_search_password_by_inputting_partial_title() throws {
-
+        prepareApp()
+        safeScreen.searchForPassword(text: "Search")
+        
+        XCTAssertTrue(safeScreen.isPasswordDisplayed(), "Password is not displayed in safe.")
     }
 
     func test_user_can_search_password_by_inputting_incorrect_title() throws {
-
+        prepareApp()
+        safeScreen.searchForPassword(text: "wrong input")
+        
+        XCTAssertFalse(safeScreen.isPasswordDisplayed(), "Password is displayed in safe.")
     }
 
 }

@@ -15,7 +15,7 @@ final class AddPasswordUITests: UITestCase {
     
     func test_password_can_be_saved_from_safe() throws {
         bottomNavBar.tabSafeIcon()
-        safeScreen.tabAddNewPassword()
+        safeScreen.tapAddNewPassword()
         savePasswordScreen.inputPassword("newPassword123#$%")
         savePasswordScreen.tapCheckmarkIcon()
         savePasswordScreen.fillAndSavePasswordForm(withUsername: TEST_USER_EMAIL, andTitle: "Add New Password from Safe")

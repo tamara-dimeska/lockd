@@ -17,6 +17,10 @@ extension XCUIElement {
         adjust(toNormalizedSliderPosition: position)
     }
     
+    func enterText(text: String) {
+        typeText(text)
+    }
+    
     func waitForExistance() {
         waitFor(predicate: "exists == true")
     }
