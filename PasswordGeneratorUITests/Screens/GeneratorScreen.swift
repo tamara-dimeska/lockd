@@ -55,7 +55,7 @@ final class GeneratorScreen: BaseScreen {
     }
     
     func setCharacterSlider(_ charactersNumber: CGFloat) {
-        characterSlider.waitAndAdjustSlider(to: charactersNumber)
+        characterSlider.adjustSlider(to: charactersNumber)
     }
     
     func tapCopyButton() {

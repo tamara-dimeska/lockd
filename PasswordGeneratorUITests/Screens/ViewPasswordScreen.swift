@@ -38,16 +38,18 @@ final class ViewPasswordScreen: BaseScreen {
         successIcon.isDisplayed()
     }
 
-    func editPassword(_ newPass: String) {
+    func editAndSavePassword(_ newPass: String) {
         editPasswordButton.waitAndTap()
+        editedPasswordText.clearText()
         editedPasswordText.typeText(newPass)
         saveEditedPasswordButton.tap()
     }
 
-    func editUsername(_ newUsername: String) {
-       editUsernameButton.waitAndTap()
-       editedUsernameText.typeText(newUsername)
-       saveEditedUsernameButton.tap()
+    func editAndSaveUsername(_ newUsername: String) {
+        editUsernameButton.waitAndTap()
+        editedUsernameText.clearText()
+        editedUsernameText.typeText(newUsername)
+        saveEditedUsernameButton.tap()
     }
 
     func getUsername() -> String {

@@ -1,9 +1,9 @@
 import XCTest
 
 final class BottomNavigationBar: BaseScreen {
-    private var generatorIcon: XCUIElement { app.tabBars.buttons.element(boundBy: 0) }
-    private var safeIcon: XCUIElement { app.tabBars.buttons.element(boundBy: 1) }
-    private var settingsIcon: XCUIElement { app.tabBars.buttons.element(boundBy: 2) }
+    private var generatorIcon: XCUIElement { app.buttons["Generator"] }
+    private var safeIcon: XCUIElement { app.buttons["Safe"] }
+    private var settingsIcon: XCUIElement { app.buttons["Settings"] }
     
     func tapGeneratorIcon() {
         generatorIcon.waitAndTap()

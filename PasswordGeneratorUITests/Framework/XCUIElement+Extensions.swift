@@ -8,17 +8,29 @@ extension XCUIElement {
     
     func waitAndGetValue() -> String {
         waitForExistance()
-        guard let value = value as? String else { return "" }
         
+        guard let value = value as? String else { return "" }
         return value
     }
     
-    func waitAndAdjustSlider(to position: CGFloat) {
+    func adjustSlider(to position: CGFloat) {
         adjust(toNormalizedSliderPosition: position)
     }
     
     func enterText(text: String) {
         typeText(text)
+    }
+    
+    func clearText() {
+        guard let stringValue = value as? String else {
+            return
+        }
+        var stringLength = stringValue.count
+        
+        while (stringLength != 0) {
+            XCUIApplication().keys["delete"].tap()
+            stringLength -= 1
+        }
     }
     
     func waitForExistance() {

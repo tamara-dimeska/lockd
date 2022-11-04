@@ -26,4 +26,8 @@ final class SafeScreen: BaseScreen {
     func tapCancelButton() {
         cancelButton.waitAndTap()
     }
+    
+    func getTitleLabel() -> String {
+        openPasswordButton.label
+    }
 }

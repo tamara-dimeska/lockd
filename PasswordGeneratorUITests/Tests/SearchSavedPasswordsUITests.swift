@@ -1,6 +1,6 @@
 import XCTest
 
-final class SearchSavedPasswords: UITestCase {
+final class SearchSavedPasswordsUITests: UITestCase {
     private var bottomNavBar: BottomNavigationBar { BottomNavigationBar(app: app) }
     private var safeScreen: SafeScreen { SafeScreen(app: app) }
     
@@ -23,6 +23,7 @@ final class SearchSavedPasswords: UITestCase {
         safeScreen.searchForPassword(text: passwordTitle)
         
         XCTAssertTrue(safeScreen.isPasswordDisplayed(), "Password is not displayed in safe.")
+        XCTAssertEqual(safeScreen.getTitleLabel(), passwordTitle, "Displayed password is not \(passwordTitle)")
     }
 
     func test_user_can_search_password_by_inputting_partial_title() throws {
@@ -30,6 +31,7 @@ final class SearchSavedPasswords: UITestCase {
         safeScreen.searchForPassword(text: "Search")
         
         XCTAssertTrue(safeScreen.isPasswordDisplayed(), "Password is not displayed in safe.")
+        XCTAssertEqual(safeScreen.getTitleLabel(), passwordTitle, "Displayed password is not \(passwordTitle)")
     }
 
     func test_user_can_search_password_by_inputting_incorrect_title() throws {

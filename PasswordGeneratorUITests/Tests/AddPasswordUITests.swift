@@ -14,12 +14,15 @@ final class AddPasswordUITests: UITestCase {
     }
     
     func test_password_can_be_saved_from_safe() throws {
+        let passwordTitle = "Add New Password from Safe"
+        
         bottomNavBar.tabSafeIcon()
         safeScreen.tapAddNewPassword()
-        savePasswordScreen.inputPassword("newPassword123#$%")
+        savePasswordScreen.inputPassword(String().random(of: 10))
         savePasswordScreen.tapCheckmarkIcon()
-        savePasswordScreen.fillAndSavePasswordForm(withUsername: TEST_USER_EMAIL, andTitle: "Add New Password from Safe")
+        savePasswordScreen.fillAndSavePasswordForm(withUsername: TEST_USER_EMAIL, andTitle: passwordTitle)
 
         XCTAssertTrue(safeScreen.isPasswordDisplayed(), "Password is not saved and is not displayed on safe screen.")
+        XCTAssertEqual(safeScreen.getTitleLabel(), passwordTitle, "Displayed password is not \(passwordTitle)")
     }
 }

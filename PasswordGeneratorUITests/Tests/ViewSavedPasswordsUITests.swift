@@ -1,6 +1,6 @@
 import XCTest
 
-final class ViewSavedPasswords: UITestCase {
+final class ViewSavedPasswordsUITests: UITestCase {
     private var viewPasswordScreen: ViewPasswordScreen { ViewPasswordScreen(app: app) }
     private var settingsScreen: SettingsScreen { SettingsScreen(app: app) }
     private var generatorScreen: GeneratorScreen { GeneratorScreen(app: app) }
@@ -41,35 +41,34 @@ final class ViewSavedPasswords: UITestCase {
     }
 
     func test_user_can_edit_saved_password_in_safe() throws {
-        generatorScreen.pressAllTogglesOn()
-
-        let passwordOnGeneratorPage = generatorScreen.getPassword()
-
-        generatorScreen.tapAddToSafeButton()
-        savePasswordScreen.fillAndSavePasswordForm(withUsername: TEST_USER_EMAIL, andTitle: "Edit saved password")
+        let newPassword = "New edited password"
+        
+        addPassToSafe(withUsername: TEST_USER_EMAIL, andTitle: "Edit saved password")
         bottomNavBar.tabSafeIcon()
         safeScreen.openPassword()
         viewPasswordScreen.tapShowPasswordButton()
-        viewPasswordScreen.editPassword("NEW")
+        viewPasswordScreen.editAndSavePassword(newPassword)
             
         let passwordInSafe = viewPasswordScreen.getPassword()
 
-        XCTAssertEqual(passwordOnGeneratorPage + "NEW", passwordInSafe, "Edited password is not saved in safe.")
+        XCTAssertEqual(newPassword, passwordInSafe, "Edited password is not saved in safe.")
     }
 
     func test_user_can_edit_saved_password_username_in_safe() throws {
+        let newUsername = "New edited username"
+        
         addPassToSafe(withUsername: TEST_USER_EMAIL, andTitle: "Edit username in saved password")
         bottomNavBar.tabSafeIcon()
         safeScreen.openPassword()
-        viewPasswordScreen.editUsername("NEW")
+        viewPasswordScreen.editAndSaveUsername(newUsername)
         
         let usernameInSafe = viewPasswordScreen.getUsername()
 
-        XCTAssertEqual(TEST_USER_EMAIL + "NEW", usernameInSafe, "Edited username is not saved in safe.")
+        XCTAssertEqual(newUsername, usernameInSafe, "Edited username is not saved in safe.")
     }
 
     func test_user_can_copy_username_in_safe() throws {
-        addPassToSafe(withUsername: "test@example.com", andTitle: "Copy username in saved password")
+        addPassToSafe(withUsername: TEST_USER_EMAIL, andTitle: "Copy username in saved password")
         bottomNavBar.tabSafeIcon()
         safeScreen.openPassword()
         viewPasswordScreen.copyUsername()

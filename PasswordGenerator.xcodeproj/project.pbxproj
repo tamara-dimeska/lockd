@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7333E81C29156D51002E022B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7333E81B29156D51002E022B /* String+Extensions.swift */; };
 		73F5E2F1290E7CEE00A34B88 /* BaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5E2D7290E7B5D00A34B88 /* BaseScreen.swift */; };
 		73F5E2F2290E7CF300A34B88 /* AddPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5E2D9290E7BED00A34B88 /* AddPasswordScreen.swift */; };
 		73F5E2F3290E7CF600A34B88 /* BottomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5E2DC290E7C1600A34B88 /* BottomNavigationBar.swift */; };
@@ -17,7 +18,7 @@
 		73F5E2FB290E7D2900A34B88 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5E2FA290E7D2900A34B88 /* SettingsScreen.swift */; };
 		73F5E2FD290E7D3500A34B88 /* ViewPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5E2FC290E7D3500A34B88 /* ViewPasswordScreen.swift */; };
 		73F5E300290E7DC900A34B88 /* XCUIElement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5E2FF290E7DC900A34B88 /* XCUIElement+Extensions.swift */; };
-		73F5E303290E86EB00A34B88 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5E302290E86EB00A34B88 /* Consts.swift */; };
+		73F5E303290E86EB00A34B88 /* TimeoutInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5E302290E86EB00A34B88 /* TimeoutInterval.swift */; };
 		73F5E306290ECEFC00A34B88 /* AddPasswordUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5E305290ECEFC00A34B88 /* AddPasswordUITests.swift */; };
 		73F5E308290ECF0700A34B88 /* ClearAllPasswordsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5E307290ECF0700A34B88 /* ClearAllPasswordsUITests.swift */; };
 		73F5E30A290ECF1100A34B88 /* GeneratePasswordUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5E309290ECF1100A34B88 /* GeneratePasswordUITests.swift */; };
@@ -86,6 +87,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7333E81B29156D51002E022B /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		73F5E2D7290E7B5D00A34B88 /* BaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreen.swift; sourceTree = "<group>"; };
 		73F5E2D9290E7BED00A34B88 /* AddPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPasswordScreen.swift; sourceTree = "<group>"; };
 		73F5E2DC290E7C1600A34B88 /* BottomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationBar.swift; sourceTree = "<group>"; };
@@ -97,7 +99,7 @@
 		73F5E2FA290E7D2900A34B88 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		73F5E2FC290E7D3500A34B88 /* ViewPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPasswordScreen.swift; sourceTree = "<group>"; };
 		73F5E2FF290E7DC900A34B88 /* XCUIElement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extensions.swift"; sourceTree = "<group>"; };
-		73F5E302290E86EB00A34B88 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		73F5E302290E86EB00A34B88 /* TimeoutInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutInterval.swift; sourceTree = "<group>"; };
 		73F5E305290ECEFC00A34B88 /* AddPasswordUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPasswordUITests.swift; sourceTree = "<group>"; };
 		73F5E307290ECF0700A34B88 /* ClearAllPasswordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearAllPasswordsUITests.swift; sourceTree = "<group>"; };
 		73F5E309290ECF1100A34B88 /* GeneratePasswordUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePasswordUITests.swift; sourceTree = "<group>"; };
@@ -224,8 +226,8 @@
 		73F5E2FE290E7DAE00A34B88 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				73F5E302290E86EB00A34B88 /* Consts.swift */,
 				73F5E2FF290E7DC900A34B88 /* XCUIElement+Extensions.swift */,
+				7333E81B29156D51002E022B /* String+Extensions.swift */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -233,6 +235,7 @@
 		73F5E304290E87BF00A34B88 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				73F5E302290E86EB00A34B88 /* TimeoutInterval.swift */,
 				73F5E313290F085100A34B88 /* UserEmails.swift */,
 			);
 			path = Data;
@@ -508,10 +511,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				73F5E30E290ECF3300A34B88 /* ViewSavedPasswordsUITests.swift in Sources */,
+				7333E81C29156D51002E022B /* String+Extensions.swift in Sources */,
 				73F5E314290F085100A34B88 /* UserEmails.swift in Sources */,
 				73F5E2F4290E7CFA00A34B88 /* GeneratorScreen.swift in Sources */,
 				73F5E2FD290E7D3500A34B88 /* ViewPasswordScreen.swift in Sources */,
-				73F5E303290E86EB00A34B88 /* Consts.swift in Sources */,
+				73F5E303290E86EB00A34B88 /* TimeoutInterval.swift in Sources */,
 				73F5E2F7290E7D0E00A34B88 /* SafeScreen.swift in Sources */,
 				73F5E2F3290E7CF600A34B88 /* BottomNavigationBar.swift in Sources */,
 				73F5E316290F0A3A00A34B88 /* UITestCase+ClearAllPasswords.swift in Sources */,

@@ -1,6 +1,6 @@
 import XCTest
 
-final class ClearAllPasswords: UITestCase {
+final class ClearAllPasswordsUITests: UITestCase {
     private var settingsScreen: SettingsScreen { SettingsScreen(app: app) }
     private var bottomNavBar: BottomNavigationBar { BottomNavigationBar(app: app) }
     private var safeScreen: SafeScreen { SafeScreen(app: app) }
