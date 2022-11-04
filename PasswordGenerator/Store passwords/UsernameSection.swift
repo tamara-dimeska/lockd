@@ -34,6 +34,7 @@ struct UsernameSection: View {
                     
                     Spacer()
                     Text(username)
+                        .accessibility(identifier: "username-text")
                     Spacer()
                     
                     Button(action: {
@@ -45,6 +46,7 @@ struct UsernameSection: View {
                         Image(systemName: "pencil")
                             
                     })
+                    .accessibility(identifier: "view-pass-edit-username-button")
                 }
                 
             } else {
@@ -54,6 +56,7 @@ struct UsernameSection: View {
                         .keyboardType(.asciiCapable)
                         .isFirstResponder(true)
                         .disableAutocorrection(true)
+                        .accessibility(identifier: "edited-username-text")
                     
                     Button(action: {
                         
@@ -66,6 +69,7 @@ struct UsernameSection: View {
                             .foregroundColor(!editedPassword.isEmpty ? .green : .blue)
                         
                     })
+                    .accessibility(identifier: "view-pass-save-edit-username-button")
                     .buttonStyle(PlainButtonStyle())
                     .foregroundColor(settings.colors[settings.accentColorIndex])
                 }
@@ -88,7 +92,7 @@ struct UsernameSection: View {
                 }
             }
             .disabled(editingUsername)
-            
+            .accessibility(identifier: "view-pass-copy-username-button")
         } else {
             
             HStack {

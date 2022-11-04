@@ -25,6 +25,7 @@ struct ClearPasswordsButton: View {
                     }
                 )
             }).buttonStyle(PlainButtonStyle())
+            .accessibility(identifier: "clear-passwords")
         }
         .alert(isPresented: $removePasswordAlert,
                content: {

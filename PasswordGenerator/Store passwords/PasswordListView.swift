@@ -84,6 +84,7 @@ struct PasswordListView: View {
                                 {
                                     Label(title, systemImage: "key")
                                 }
+                                .accessibility(identifier: "saved-password-item")
                             }
                         }
                     
@@ -101,6 +102,7 @@ struct PasswordListView: View {
             })
             .navigationBarItems(trailing: Button(action: { addSheetIsShowing.toggle() }, label: {
                 Image(systemName: "plus")
+                    .accessibility(identifier: "add-new-password")
             }))
             .navigationBarTitle("Coffre fort")
             .searchablePasswords(with: $searchText)

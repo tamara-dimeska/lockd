@@ -58,6 +58,7 @@ struct OnboardingView: View {
                 .padding()
                 .background(settingsViewModel.colors[settingsViewModel.accentColorIndex])
                 .cornerRadius(10)
+                .accessibility(identifier: "continue-button")
             
             Spacer()
             

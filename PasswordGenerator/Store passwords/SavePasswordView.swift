@@ -51,6 +51,7 @@ struct SavePasswordView: View {
                                 TextField(password, text: $editedPassword.text)
                                     .keyboardType(.asciiCapable)
                                     .disableAutocorrection(true)
+                                    .accessibility(identifier: "password-field")
                                 
                             }
                             Spacer()
@@ -81,6 +82,7 @@ struct SavePasswordView: View {
                                 }, label: {
                                     Image(systemName: "checkmark")
                                         .foregroundColor(!editedPassword.text.isEmpty ? .green : .blue)
+                                        .accessibility(identifier: "checkmark-icon")
                                 })
                                 .animation(.easeIn)
                                 .disabled(editedPassword.text.isEmpty)
@@ -96,12 +98,12 @@ struct SavePasswordView: View {
                     
                     Section(header: Text("Nom de compte").foregroundColor(.gray)) {
                         TextField("ex: example@icloud.com", text: $username)
-                        
+                            .accessibility(identifier: "username-input")
                     }
                     
                     Section(header: Text("Titre").foregroundColor(.gray), footer: title.isEmpty ? Text("Champ obligatoire").foregroundColor(.red) : Text("") ) {
                         TextField("ex: Twitter", text: $title)
-                        
+                            .accessibility(identifier: "title-input")
                     }
                     .alert(isPresented: $showMissingTitleAlert, content: {
                         Alert(title: Text("Champ manquant"), message: Text("Vous devez au moins donner un nom de compte a votre mot de passe."), dismissButton: .cancel(Text("OK!")))
@@ -142,6 +144,7 @@ struct SavePasswordView: View {
                     
                 }, label: {
                     Text("Enregistrer")
+                        .accessibility(identifier: "save-pass-button")
                 })
                 .disabled(isEditingPassword ? true : false))
             }
